@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background:  #b8afd3;
+  color: #FAEBD7;
+}
+
+.navbar {
+  background: #9d9ccb;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.login-btn {
+  background: #6A4E77;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #3C3B6E, #191970);
+  color: white;
+}
+
+.cta-btn {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #B9AEDC;
+  color:#333;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.cta-btn:hover {
+  background: #D3D3D3;
+}
+
+.featured {
+  font-style: normal;
+  color: #333; 
+  padding: 3rem 2rem;
+}
+
+.card-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.story-card {
+  background: #FFFFF0;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  width: 250px;
+  border-radius: 6px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+ background: #3C3B6E; 
+  color: #FAEBD7;   
+}
