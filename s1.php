@@ -72,10 +72,10 @@
             echo "<p>Connection failed: " . $conn->connect_error . "</p>";
         } else {
            
-            $query = "SELECT * FROM story_parts WHERE genre= '$genre' AND gender= '$gender'";
+            $query = "SELECT * FROM story_parts WHERE genre= '$genre' AND gender= '$gender' order by RAND() LIMIT 1";
             $result = $conn->query($query);         
-            $query1 = "SELECT * FROM user_stories WHERE genre='$genre' AND gender='$gender'";
-            $result1 = $conn->query($query1); 
+            $query1 = "SELECT * FROM user_stories WHERE genre='$genre' AND gender='$gender' order by RAND() LIMIT 1";
+           $result1 = $conn->query($query1); 
     ?>
     <table align="center" >
                 <tr>
@@ -89,11 +89,10 @@
                 while ($row = $result->fetch_assoc()) 
                 { 
                     $id=$row['id'];
-                $title = $row['Title'];
                     
                 ?>
                 <tr>
-                    <td><a href="view_story.php?sid=<?php echo $id ?>" ><?php echo $title; ?></a></td>   
+                   <td><a href="view_story.php?sid=<?php echo $id ?>&title=<?php echo $title ?> &name=<?php echo $name?>" ><?php echo $title;?></a></td>    
                 </tr>
 
                 <?php
@@ -102,23 +101,30 @@
                 }
                  
                  ?>
-                 <?php
-                if($result1->num_rows > 0) {
-                while ($row = $result1->fetch_assoc()) 
+                  <?php
+                 if($result1->num_rows > 0) 
                 { 
+                 while ($row = $result1->fetch_assoc()) 
+                 { 
                     $id=$row['id'];
-                $title = $row['title'];
                     
-                ?>
-                <tr>
-                    <td><a href="view_story.php?sid=<?php echo $id ?>" ><?php echo $title; ?></a></td>   
-                </tr>
-
-                <?php
-                //$result->next();
-                }   
-                }
                  ?>
+
+                 <tr>
+
+                 <td>
+                    Story from other users: </td>   
+                 </tr>
+                 <tr>
+                     <td>
+                        <a href="view_story.php?sid=<?php echo $id ?>&title=<?php echo $title ?> &name=<?php echo $name?>" ><?php echo $title;?></a></td>   
+                 </tr> 
+
+                 <?php
+                 //$result->next();
+                 }   
+                 }
+                  ?>
     </table>
 <?php
                 }

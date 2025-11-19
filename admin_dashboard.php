@@ -20,7 +20,7 @@
         <label for="gender">Gender:</label>
         <input type="text" id="gender" name="gender" placeholder="male/female" required><br><br>
         <label for="story">Story:</label><br>
-        <textarea id="story" name="story" rows="10" cols="50" required></textarea><br><br>
+        <textarea id="story" name="story" rows="10" cols="50" placeholder="replace character name with {name}" required></textarea><br><br>
 
         <input type="submit" name="submit" value="Submit Story">
     </form>

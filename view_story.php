@@ -11,6 +11,10 @@
                 text-align: center;
                 color: black;
             }
+            a{
+                text-decoration: none;
+                color: white;
+            }
             p {
                 font-family:'Times New Roman', Times, serif;
                 font-size: 18px;
@@ -24,6 +28,8 @@
         </style>
 <?php
 $story_id=$_REQUEST['sid'];
+$title=$_REQUEST['title'];
+$name=$_REQUEST['name'];
 
         
         $conn = new mysqli("localhost", "root", "", "miniproject");
@@ -39,19 +45,18 @@ $story_id=$_REQUEST['sid'];
         
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-                 $title = $row['title'];
                  $story = $row['story'];
-                    $name = $row['name'];
-                    $gender = $row['gender'];
-                    $genre = $row['genre'];
+                    $gender = $row['genre'];
+                    $genre = $row['gender'];
+                    $story = str_replace("{name}", $name, $story);
 
                   }
    }
                                                                   
 ?>
 
- <?php  // $story = str_replace("{name}", $name, $row['content']);
-                //echo "<center><div style='color:white; text-align:justify; margin:30px; font-size:20px; width:50%;'><h3>$title</h3><p>$story</p></div></center>";
+ <?php  
+                echo "<center><div style='color:white; text-align:justify; margin:30px; font-size:20px; width:50%;'><h3>$title</h3></div></center>";
                 echo '<form method="post" style="text-align:center;">
                         <label for="story">Submit your edited story:</label><br>
                         <input type="hidden" name="title" value="'.$title.'">
@@ -64,19 +69,18 @@ $story_id=$_REQUEST['sid'];
 
     
 if (isset($_POST["submit_story"])) {
+
    
     $story = $_POST["story"]; 
     $title = $_POST["title"];
     $name = $_POST["name"];
-    $gender = $_POST["gender"];
-    $genre = $_POST["genre"];
-
-    $conn = new mysqli("localhost", "root", "", "miniproject");
+    $story= str_replace($name,"{name}", $story);
+$conn = new mysqli("localhost", "root", "", "miniproject");
 
     if ($conn->connect_error) {
         echo "<p style='color:red; text-align:center;'>Connection failed: " . $conn->connect_error . "</p>";
     } else {
-              $story = mysqli_real_escape_string($conn, $_POST['story']);
+              
          
        $query="insert into user_stories (title, name,gender,genre,story) values ('$title', '$name', '$gender', '$genre', '$story')";
 
@@ -92,7 +96,9 @@ if (isset($_POST["submit_story"])) {
     
         $conn->close();
     }
+    
 }
+
 
     ?>
     </head>
