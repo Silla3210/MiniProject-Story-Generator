@@ -11,10 +11,7 @@
                 text-align: center;
                 color: black;
             }
-            a{
-                text-decoration: none;
-                color: white;
-            }
+            
             p {
                 font-family:'Times New Roman', Times, serif;
                 font-size: 18px;

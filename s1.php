@@ -19,6 +19,19 @@
         h2:hover {
             color: white;
         }
+        a{
+                text-decoration: none;
+                color: white;
+            }
+        .hi{
+            background-color: #3947dbff;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 18px;
+            margin: 10px;
+        }
 
         h3 {
           font-family: arial;
@@ -92,7 +105,7 @@
                     
                 ?>
                 <tr>
-                   <td><a href="view_story.php?sid=<?php echo $id ?>&title=<?php echo $title ?> &name=<?php echo $name?>" ><?php echo $title;?></a></td>    
+                   <td><div class="hi"><a href="view_story.php?sid=<?php echo $id ?>&title=<?php echo $title ?> &name=<?php echo $name?>" ><?php echo $title;?></a></div></td>    
                 </tr>
 
                 <?php
@@ -117,7 +130,7 @@
                  </tr>
                  <tr>
                      <td>
-                        <a href="view_story.php?sid=<?php echo $id ?>&title=<?php echo $title ?> &name=<?php echo $name?>" ><?php echo $title;?></a></td>   
+                      <div class="hi"><a href="view_story.php?sid=<?php echo $id ?>&title=<?php echo $title ?> &name=<?php echo $name?>" ><?php echo $title;?></a></div></td>   
                  </tr> 
 
                  <?php
