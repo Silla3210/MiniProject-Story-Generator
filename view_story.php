@@ -46,6 +46,9 @@ $name=$_REQUEST['name'];
                     $gender = $row['genre'];
                     $genre = $row['gender'];
                     $story = str_replace("{name}", $name, $story);
+                    $story= str_replace("*", "\"", $story);
+                    $story= str_replace("#", "'", $story);
+
 
                   }
    }
@@ -72,6 +75,9 @@ if (isset($_POST["submit_story"])) {
     $title = $_POST["title"];
     $name = $_POST["name"];
     $story= str_replace($name,"{name}", $story);
+    $story= str_replace("'","#", $story);
+    $story= str_replace("\"","*", $story);
+    
 $conn = new mysqli("localhost", "root", "", "miniproject");
 
     if ($conn->connect_error) {
