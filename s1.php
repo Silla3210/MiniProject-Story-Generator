@@ -70,6 +70,7 @@
         <input type="text" id="gender" name="gender" placeholder="male/female" required><br><br>
 
         <input type="submit" name="submit" value="Generate Story">
+
     </form>
 
     <?php
@@ -109,7 +110,7 @@
                 </tr>
 
                 <?php
-                //$result->next();
+                
                 }   
                 }
                  
@@ -134,7 +135,7 @@
                  </tr> 
 
                  <?php
-                 //$result->next();
+                 
                  }   
                  }
                   ?>
